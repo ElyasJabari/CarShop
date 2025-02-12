@@ -1,21 +1,23 @@
 <template>
-  <div class="filter-container">
-    <label class="filter-title">Filter nach:</label>
-    <div class="filter-group">
-      <label for="brand-select">Modell:</label>
-      <select id="brand-select" v-model="selectedBrand">
-        <option value="">Alle</option>
-        <option v-for="brand in uniqueBrands" :key="brand" :value="brand">{{ brand }}</option>
-      </select>
+  <div class="CarShopCards">
+    <div class="filter-container">
+      <label class="filter-title">Filter nach:</label>
+      <div class="filter-group">
+        <label for="brand-select">Modell:</label>
+        <select id="brand-select" v-model="selectedBrand">
+          <option value="">Alle</option>
+          <option v-for="brand in uniqueBrands" :key="brand" :value="brand">{{ brand }}</option>
+        </select>
+      </div>
     </div>
-  </div>
 
-  <div class="cars-grid">
-    <div class="car-card" v-for="car in filteredCars" :key="car.id" @click="openCar(car)">
-      <img :src="car.image" :alt="car.name" class="car-image" />
-      <div class="car-info">
-        <h3 class="car-title">{{ car.model }}</h3>
-        <p class="car-desc">{{ car.shortDescription }}</p>
+    <div class="cars-grid">
+      <div class="car-card" v-for="car in filteredCars" :key="car.id" @click="openCar(car)">
+        <img :src="car.image" :alt="car.name" class="car-image" />
+        <div class="car-info">
+          <h3 class="car-title">{{ car.model }}</h3>
+          <p class="car-desc">{{ car.shortDescription }}</p>
+        </div>
       </div>
     </div>
   </div>
