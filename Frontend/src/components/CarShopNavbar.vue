@@ -1,4 +1,5 @@
 <template>
+  <div>
     <nav class="CarShopNavbar">
       <div class="nav-container">
         <div class="nav-logo">
@@ -13,11 +14,10 @@
       </div>
     </nav>
 
-
-  <!-- Hero-Bereich mit Hintergrundbild -->
-    <section class="hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
+  <!-- header-Bereich mit Hintergrundbild -->
+    <section class="header">
+      <div class="header-overlay"></div>
+      <div class="header-content">
         <h1>Willkommen bei CarShop – Ihrem Online-Portal für Autos! 🚗✨</h1>
         <p>
           Entdecken Sie eine große Auswahl an Fahrzeugen mit detaillierten Informationen zu jedem Modell.
@@ -30,6 +30,7 @@
         </p>
       </div>
     </section>
+  </div>
 </template>
 
 <script>
@@ -83,19 +84,19 @@ export default {
 }
 
 
-/* Hero-Bereich */
-.hero {
+/* header-Bereich */
+.header {
   position: relative;
   height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url('@/assets/hero-car.webp') center center/cover no-repeat;
+  background: url('@/assets/header-car.webp') center center/cover no-repeat;
   margin-bottom: 2rem;
 }
 
 /* Overlay, um den Text lesbar zu machen */
-.hero-overlay {
+.header-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -104,8 +105,8 @@ export default {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-/* Inhalt im Hero-Bereich */
-.hero-content {
+/* Inhalt im header-Bereich */
+.header-content {
   position: relative;
   z-index: 1;
   color: #fff;
@@ -113,12 +114,12 @@ export default {
   padding: 0 1rem;
 }
 
-.hero-content h1 {
+.header-content h1 {
   font-size: 2.1rem;
   margin-bottom: 1rem;
 }
 
-.hero-content p {
+.header-content p {
   font-size: 1.2rem;
   line-height: 1.6;
   margin: 0.5rem 0;
