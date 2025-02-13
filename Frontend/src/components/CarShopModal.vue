@@ -77,8 +77,8 @@
 
 .modal-close {
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+  top: 0.2rem;
+  right: 0.2rem;
   width: 40px;
   height: 40px;
   border: none;

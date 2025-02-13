@@ -3,7 +3,8 @@
     <CarShopNavbar @show-favorites="setShowFavorites(true)" @show-all="setShowFavorites(false)" :showFavorites="showFavorites"
     />
     <!-- Ansicht der Autokarten -->
-    <CarShopCards :cars="cars" @openCar="openCar"/>
+    <CarShopCards :cars="favoritCars" :favorites="favoritesList" @openCar="openCar" @toggle-favorite="toggleFavorite"
+    />
 
     <!-- Modal für Detailansicht -->
     <CarShopModal :selectedCar="selectedCar" @closeModal="closeModal" />
@@ -118,8 +119,17 @@ export default {
         },
       ],
       selectedCar: null, // Speichert das aktuell ausgewählte Auto
+      favoritesList: [],
       showFavorites: false
     };
+  },
+  computed: {
+    favoritCars() {
+      if (this.showFavorites) {
+        return this.cars.filter(car => this.favoritesList.includes(car.id));
+      }
+      return this.cars;
+    }
   },
   methods: {
     openCar(car) {
@@ -127,6 +137,14 @@ export default {
     },
     closeModal() {
       this.selectedCar = null;
+    },
+    toggleFavorite(carId) {
+      const index = this.favoritesList.indexOf(carId);
+      if (index === -1) {
+        this.favoritesList.push(carId);
+      } else {
+        this.favoritesList.splice(index, 1);
+      }
     },
     setShowFavorites(value) {
       this.showFavorites = value;
