@@ -6,10 +6,10 @@
           <a href="#">CarShop</a>
         </div>
         <ul class="nav-links">
-          <li><a href="#">Startseite</a></li>
-          <li><a href="#">Angebote</a></li>
+          <li><a href="#" @click.prevent="$emit('show-all')" :class="{ active: !showFavorites }">Startseite</a></li>
           <li><a href="#">Über uns</a></li>
           <li><a href="#">Kontakt</a></li>
+          <li><a href="#" @click.prevent="$emit('show-favorites')" :class="{ active: showFavorites }">Favoriten</a></li>
         </ul>
       </div>
     </nav>
@@ -35,8 +35,11 @@
 
 <script>
 export default {
-   name: "CarShopNavbar" 
-}
+   name: "CarShopNavbar",
+   props: {
+    showFavorites: Boolean
+  }
+};
 </script>
 
 <style scoped>
@@ -81,6 +84,11 @@ export default {
 
 .nav-links li a:hover {
   color: #007bff;
+}
+
+.active {
+  text-decoration: underline !important;
+  font-weight: bold;
 }
 
 

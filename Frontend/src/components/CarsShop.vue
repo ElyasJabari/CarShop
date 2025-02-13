@@ -1,6 +1,7 @@
 <template>
   <div class="cars-container">
-    <CarShopNavbar/>
+    <CarShopNavbar @show-favorites="setShowFavorites(true)" @show-all="setShowFavorites(false)" :showFavorites="showFavorites"
+    />
     <!-- Ansicht der Autokarten -->
     <CarShopCards :cars="cars" @openCar="openCar"/>
 
@@ -117,6 +118,7 @@ export default {
         },
       ],
       selectedCar: null, // Speichert das aktuell ausgewählte Auto
+      showFavorites: false
     };
   },
   methods: {
@@ -125,6 +127,9 @@ export default {
     },
     closeModal() {
       this.selectedCar = null;
+    },
+    setShowFavorites(value) {
+      this.showFavorites = value;
     },
   },
 };
