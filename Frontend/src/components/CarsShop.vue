@@ -7,8 +7,8 @@
     />
 
     <!-- Modal für Detailansicht -->
-    <CarShopModal :selectedCar="selectedCar" @closeModal="closeModal" />
-
+    <CarShopModal :selectedCar="selectedCar" :favorites="favoritesList" @closeModal="closeModal" @toggle-favorite="toggleFavorite"
+    />
   </div>
 </template>
 
