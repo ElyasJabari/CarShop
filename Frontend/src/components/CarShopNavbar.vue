@@ -20,13 +20,10 @@
       <div class="header-content">
         <h1>Willkommen bei CarShop – Ihrem Online-Portal für Autos! 🚗✨</h1>
         <p>
-          Entdecken Sie eine große Auswahl an Fahrzeugen mit detaillierten Informationen zu jedem Modell.
+          Entdecken Sie eine große Auswahl an Fahrzeugen mit allen wichtigen Details auf einen Blick.
         </p>
         <p>
-          Egal, ob Sie nach einem sportlichen Flitzer, einem komfortablen Familienauto oder einem sparsamen Stadtauto suchen – bei uns finden Sie alle wichtigen Details auf einen Blick.
-        </p>
-        <p>
-          Klicken Sie auf ein Auto, um mehr über seine Ausstattung, Leistung und Besonderheiten zu erfahren. Lassen Sie sich inspirieren und finden Sie Ihr Traumauto ganz bequem online!
+          Klicken Sie auf ein Auto und erfahren Sie mehr über Ausstattung, Leistung und Besonderheiten.
         </p>
       </div>
     </section>
@@ -101,6 +98,10 @@ export default {
   justify-content: center;
   background: url('@/assets/header-car.webp') center center/cover no-repeat;
   margin-bottom: 2rem;
+}
+
+.header h1{
+  padding-bottom: 25px;
 }
 
 /* Overlay, um den Text lesbar zu machen */

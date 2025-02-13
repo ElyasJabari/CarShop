@@ -136,7 +136,6 @@ export default {
   fill: red;
 }
 
-
 /* Cards */
 .cars-container {
   background-color: #f5f7fa;
@@ -146,19 +145,26 @@ export default {
 
 .cars-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
   margin: 2rem auto 0;
   max-width: 1200px;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+.cars-grid .car-card:only-child {
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .car-card {
   background-color: #ffffff;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
 }
 
@@ -167,9 +173,10 @@ export default {
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
+/* Bild mit 16:9-Seitenverhältnis */
 .car-image {
   width: 100%;
-  height: 160px;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
 }
 
