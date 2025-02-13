@@ -154,7 +154,7 @@ export default {
 }
 
 .cars-grid .car-card:only-child {
-  max-width: 400px;
+  max-width: 600px;
   margin: 0 auto;
 }
 

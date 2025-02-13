@@ -41,16 +41,19 @@ export default {
 
 <style scoped>
 .CarShopNavbar {
-  background-color: #f3e9cf;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  padding: 0.5rem 1rem;
+  background: rgba(216, 207, 207, 0.705);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  font-family: 'Poppins', sans-serif;
 }
 
 .nav-container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -58,36 +61,77 @@ export default {
 }
 
 .nav-logo a {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #333;
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   text-decoration: none;
+  letter-spacing: -1px;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 3rem;
   margin: 0;
   padding: 0;
 }
 
 .nav-links li a {
   text-decoration: none;
-  color: #333;
-  font-size: 1rem;
-  transition: color 0.2s ease;
+  color: #d63a9a;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.2rem 0.1rem;
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
 }
 
 .nav-links li a:hover {
-  color: #007bff;
+  background: rgba(255, 107, 107, 0.1);
+  transform: translateY(-2px);
+}
+
+.nav-links li a::before {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: #ff6b6b;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::before {
+  width: 60%;
 }
 
 .active {
-  text-decoration: underline !important;
-  font-weight: bold;
+  color: #ff6b6b !important;
+  font-weight: 600 !important;
 }
 
+.active::before {
+  width: 60% !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 1.8rem;
+  }
+  
+  .nav-links li a {
+    font-size: 1rem;
+    padding: 0.5px;
+  }
+}
 
 /* header-Bereich */
 .header {
