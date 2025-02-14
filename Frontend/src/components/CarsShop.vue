@@ -1,14 +1,10 @@
 <template>
   <div class="cars-container">
-    <CarShopNavbar @show-favorites="setShowFavorites(true)" @show-all="setShowFavorites(false)" :showFavorites="showFavorites"
-    />
-    <!-- Ansicht der Autokarten -->
-    <CarShopCards :cars="favoritCars" :favorites="favoritesList" @openCar="openCar" @toggle-favorite="toggleFavorite"
-    />
+    <CarShopNavbar @show-favorites="setShowFavorites(true)" @show-all="setShowFavorites(false)" :showFavorites="showFavorites"/>
 
-    <!-- Modal für Detailansicht -->
-    <CarShopModal :selectedCar="selectedCar" :favorites="favoritesList" @closeModal="closeModal" @toggle-favorite="toggleFavorite"
-    />
+    <CarShopCards :cars="favoritCars" :favorites="favoritesList" @openCar="openCar" @toggle-favorite="toggleFavorite"/>
+
+    <CarShopModal :selectedCar="selectedCar" :favorites="favoritesList" @closeModal="closeModal" @toggle-favorite="toggleFavorite"/>
   </div>
 </template>
 
@@ -31,7 +27,7 @@ export default {
         ...car,
         image: require(`@/assets/${car.image}`)
       })),
-      selectedCar: null, // Speichert das aktuell ausgewählte Auto
+      selectedCar: null,
       favoritesList: [],
       showFavorites: false
     };
