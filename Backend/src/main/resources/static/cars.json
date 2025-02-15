@@ -1,0 +1,19 @@
+[
+    {
+      "id": 1,
+      "brand": "BMW",
+      "model": "BMW M3",
+      "image": "BMW_M3.jpg",
+      "shortDescription": "Sportliche Mittelklasse-Limousine mit Hochleistungstechnik",
+      "fullDescription": "Der BMW M3 ist ein leistungsstarker Sportwagen, der sowohl für den Alltag als auch für die Rennstrecke konzipiert wurde. Mit einem kraftvollen Reihensechszylinder-Motor, einem agilen Fahrwerk und sportlichem Design gehört er zu den bekanntesten Performance-Fahrzeugen weltweit."
+    },
+    {
+      "id": 2,
+      "brand": "BMW",
+      "model": "BMW X5 M",
+      "image": "BMW_X5_M.jpg",
+      "shortDescription": "Leistungsstarker SUV mit luxuriöser Ausstattung.",
+      "fullDescription": "Der BMW X5 M vereint die Kraft eines Sportwagens mit der Vielseitigkeit eines SUVs. Dank seines V8-Biturbo-Motors und Allradantriebs bietet er außergewöhnliche Fahrleistungen, während der Innenraum mit edlen Materialien und modernster Technik höchsten Komfort garantiert."
+    }
+  ]
+  
