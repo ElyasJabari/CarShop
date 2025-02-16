@@ -22,14 +22,14 @@ jobs:
           cache: 'npm'
           cache-dependency-path: Frontend/package-lock.json 
 
-      - name: 📦 Abhängigkeiten installieren
+      - name: Abhängigkeiten installieren
         run: npm install
         working-directory: Frontend
 
-      - name: ✅ Linter prüfen (Code-Stil)
+      - name: Linter prüfen (Code-Stil)
         run: npm run lint
         working-directory: Frontend
 
-      - name: 🏗️ Projekt bauen
+      - name: Projekt bauen
         run: npm run build
         working-directory: Frontend
