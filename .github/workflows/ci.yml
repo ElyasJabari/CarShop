@@ -12,27 +12,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Code aus Repository holen
+      - name: 📥 Code aus Repository holen
         uses: actions/checkout@v3
 
-      - name: Node.js installieren
+      - name: 🔧 Node.js installieren
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: 'npm'
-          
-      - name: Abhängigkeiten installieren
+
+      - name: 📦 Abhängigkeiten installieren
         run: npm install
-        working-directory: frontend
+        working-directory: frontend  # 👉 Hier anpassen!
 
-      - name: Linter prüfen (Code-Stil)
+      - name: ✅ Linter prüfen (Code-Stil)
         run: npm run lint
-        working-directory: frontend
+        working-directory: frontend  # 👉 Hier anpassen!
 
-      - name: Tests ausführen
+      - name: 🔍 Tests ausführen
         run: npm run test
-        working-directory: frontend
+        working-directory: frontend  # 👉 Hier anpassen!
 
-      - name: Projekt bauen
+      - name: 🏗️ Projekt bauen
         run: npm run build
-        working-directory: frontend
+        working-directory: frontend  # 👉 Hier anpassen!
