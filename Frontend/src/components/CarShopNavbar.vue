@@ -5,16 +5,35 @@
         <div class="nav-logo">
           <a href="#">CarShop</a>
         </div>
-        <ul class="nav-links">
-          <li><a href="#" @click.prevent="$emit('show-all')" :class="{ active: !showFavorites }">Startseite</a></li>
-          <li><a href="#">Über uns</a></li>
-          <li><a href="#">Kontakt</a></li>
-          <li><a href="#" @click.prevent="$emit('show-favorites')" :class="{ active: showFavorites }">Favoriten</a></li>
+        <!-- Hamburger Icon nur auf mobilen Geräten -->
+        <div class="mobile-menu-icon" @click="toggleMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <!-- Navigation; im Mobile-Mode wird sie als Dropdown eingeblendet -->
+        <ul class="nav-links" :class="{ 'mobile-open': isMenuOpen }">
+          <li>
+            <a href="#" @click.prevent="$emit('show-all'); closeMenu()" :class="{ active: !showFavorites }">
+              Startseite
+            </a>
+          </li>
+          <li>
+            <a href="#" @click="closeMenu()">Über uns</a>
+          </li>
+          <li>
+            <a href="#" @click="closeMenu()">Kontakt</a>
+          </li>
+          <li>
+            <a href="#" @click.prevent="$emit('show-favorites'); closeMenu()" :class="{ active: showFavorites }">
+              Favoriten
+            </a>
+          </li>
         </ul>
       </div>
     </nav>
 
-  <!-- header-Bereich mit Hintergrundbild -->
+    <!-- header-Bereich mit Hintergrundbild -->
     <section class="header">
       <div class="header-overlay"></div>
       <div class="header-content">
@@ -32,23 +51,36 @@
 
 <script>
 export default {
-   name: "CarShopNavbar",
-   props: {
+  name: "CarShopNavbar",
+  props: {
     showFavorites: Boolean
+  },
+  data() {
+    return {
+      isMenuOpen: false
+    };
+  },
+  methods: {
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen;
+    },
+    closeMenu() {
+      this.isMenuOpen = false;
+    }
   }
 };
 </script>
 
 <style scoped>
 .CarShopNavbar {
-  background: rgba(216, 207, 207, 0.705);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(90deg, #141e30, #243b55);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
   padding: 1rem 2rem;
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   font-family: 'Poppins', sans-serif;
 }
 
@@ -58,12 +90,13 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 .nav-logo a {
   font-size: 2rem;
   font-weight: 700;
-  background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+  background: linear-gradient(45deg, #f39c12, #e74c3c);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -81,7 +114,7 @@ export default {
 
 .nav-links li a {
   text-decoration: none;
-  color: #d63a9a;
+  color: #fff;
   font-size: 1.1rem;
   font-weight: 500;
   padding: 0.2rem 0.1rem;
@@ -91,7 +124,7 @@ export default {
 }
 
 .nav-links li a:hover {
-  background: rgba(255, 107, 107, 0.1);
+  background: rgba(255, 255, 255, 0.1);
   transform: translateY(-2px);
 }
 
@@ -103,7 +136,7 @@ export default {
   transform: translateX(-50%);
   width: 0;
   height: 3px;
-  background: #ff6b6b;
+  background: linear-gradient(45deg, #f39c12, #e74c3c);
   border-radius: 2px;
   transition: width 0.3s ease;
 }
@@ -113,7 +146,6 @@ export default {
 }
 
 .active {
-  color: #ff6b6b !important;
   font-weight: 600 !important;
 }
 
@@ -121,15 +153,53 @@ export default {
   width: 60% !important;
 }
 
+/* Hamburger-Menü */
+.mobile-menu-icon {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.mobile-menu-icon span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px 0;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
+  .mobile-menu-icon {
+    display: flex;
+  }
+
+  /* Navigation als Dropdown im Mobile-Menu */
   .nav-links {
-    gap: 1.8rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: linear-gradient(90deg, #141e30, #243b55);
+    flex-direction: column;
+    align-items: Center;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+  }
+  
+  .nav-links.mobile-open {
+    max-height: 1000px; /* Erhöhter Wert, damit alle Links sichtbar sind */
+  }
+  
+  .nav-links li {
+    margin: 1rem 0;
   }
   
   .nav-links li a {
     font-size: 1rem;
-    padding: 0.5px;
+    padding: 0.1rem 0.2rem;
   }
 }
 
@@ -144,7 +214,7 @@ export default {
   margin-bottom: 2rem;
 }
 
-.header h1{
+.header h1 {
   padding-bottom: 25px;
 }
 
