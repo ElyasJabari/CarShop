@@ -23,16 +23,16 @@ jobs:
 
       - name: 📦 Abhängigkeiten installieren
         run: npm install
-        working-directory: frontend  # 👉 Hier anpassen!
+        working-directory: Frontend  # 👉 Hier anpassen!
 
       - name: ✅ Linter prüfen (Code-Stil)
         run: npm run lint
-        working-directory: frontend  # 👉 Hier anpassen!
+        working-directory: Frontend  # 👉 Hier anpassen!
 
       - name: 🔍 Tests ausführen
         run: npm run test
-        working-directory: frontend  # 👉 Hier anpassen!
+        working-directory: Frontend  # 👉 Hier anpassen!
 
       - name: 🏗️ Projekt bauen
         run: npm run build
-        working-directory: frontend  # 👉 Hier anpassen!
+        working-directory: Frontend  # 👉 Hier anpassen!
