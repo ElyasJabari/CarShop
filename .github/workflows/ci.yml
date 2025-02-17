@@ -12,10 +12,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Code aus Repository holen
+      - name: Code aus Repository holen
         uses: actions/checkout@v3
 
-      - name: 🔧 Node.js installieren
+      - name: Node.js installieren
         uses: actions/setup-node@v3
         with:
           node-version: 18

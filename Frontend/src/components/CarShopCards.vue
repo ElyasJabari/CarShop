@@ -37,15 +37,13 @@ export default {
   },
   data() {
     return {
-      selectedBrand: "" // Speichert die ausgewählte Marke
+      selectedBrand: ""
     };
   },
   computed: {
-    // Einzigartige Automarken für das Dropdown
     uniqueBrands() {
       return [...new Set(this.cars.map(car => car.brand))];
     },
-    // Gefilterte Autos basierend auf der ausgewählten Marke
     filteredCars() {
       if (!this.selectedBrand) {
         return this.cars;
@@ -62,7 +60,6 @@ export default {
 </script>
 
 <style scoped>
-/* Filter */
 .filter-container {
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
@@ -108,7 +105,6 @@ export default {
   outline: none;
 }
 
-/* Favorites */
 .favorite-button {
   position: absolute;
   top: 5px;
@@ -136,7 +132,6 @@ export default {
   fill: red;
 }
 
-/* Cards */
 .cars-container {
   background-color: #f5f7fa;
   min-height: 100vh;

@@ -5,13 +5,11 @@
         <div class="nav-logo">
           <a href="#">CarShop</a>
         </div>
-        <!-- Hamburger Icon nur auf mobilen Geräten -->
         <div class="mobile-menu-icon" @click="toggleMenu">
           <span></span>
           <span></span>
           <span></span>
         </div>
-        <!-- Navigation; im Mobile-Mode wird sie als Dropdown eingeblendet -->
         <ul class="nav-links" :class="{ 'mobile-open': isMenuOpen }">
           <li>
             <a href="#" @click.prevent="$emit('show-all'); closeMenu()" :class="{ active: !showFavorites }">
@@ -169,13 +167,11 @@ export default {
   transition: all 0.3s ease;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .mobile-menu-icon {
     display: flex;
   }
 
-  /* Navigation als Dropdown im Mobile-Menu */
   .nav-links {
     position: absolute;
     top: 100%;
@@ -203,7 +199,6 @@ export default {
   }
 }
 
-/* header-Bereich */
 .header {
   position: relative;
   height: 400px;
@@ -218,7 +213,6 @@ export default {
   padding-bottom: 25px;
 }
 
-/* Overlay, um den Text lesbar zu machen */
 .header-overlay {
   position: absolute;
   top: 0;
@@ -228,7 +222,6 @@ export default {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-/* Inhalt im header-Bereich */
 .header-content {
   position: relative;
   z-index: 1;

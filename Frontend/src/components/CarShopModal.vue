@@ -20,7 +20,7 @@
   export default {
     name: "CarShopModal",
     props: {
-      selectedCar: Object, // Erwartet das ausgewählte Auto
+      selectedCar: Object,
       favorites: Array,
     },
   };
@@ -56,7 +56,7 @@
   position: absolute;
   top: 5px;
   left: 5px;
-  background: rgba(0, 0, 0, 0.1); /* Leichter Hintergrund */
+  background: rgba(0, 0, 0, 0.1);
   border: none;
   cursor: pointer;
   padding: 8px;
