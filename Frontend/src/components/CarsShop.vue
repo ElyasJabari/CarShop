@@ -9,24 +9,21 @@
 </template>
 
 <script>
-import carsData from "@/assets/Cars.json"
+import axios from "axios"; // Axios für HTTP-Anfragen
 import CarShopNavbar from "@/components/CarShopNavbar.vue";
 import CarShopCards from "@/components/CarShopCards.vue"; 
 import CarShopModal from "@/components/CarShopModal.vue"; 
 
 export default {
   name: "CarsShop",
-  components:{
+  components: {
     CarShopNavbar,
     CarShopCards,
     CarShopModal
   },
   data() {
     return {
-      cars: carsData.map(car => ({
-        ...car,
-        image: require(`@/assets/${car.image}`)
-      })),
+      cars: [],
       selectedCar: null,
       favoritesList: [],
       showFavorites: false
@@ -41,6 +38,17 @@ export default {
     }
   },
   methods: {
+    async fetchCars() {
+      try {
+        const response = await axios.get("http://localhost:9090/cars"); // Backend API-Endpoint
+        this.cars = response.data.map(car => ({
+          ...car,
+          image: require(`@/assets/${car.image}`)
+        }));
+      } catch (error) {
+        console.error("Fehler beim Laden der Autos:", error);
+      }
+    },
     openCar(car) {
       this.selectedCar = car;
     },
@@ -59,8 +67,8 @@ export default {
       this.showFavorites = value;
     },
   },
+  mounted() {
+    this.fetchCars(); // Daten beim Laden der Seite abrufen
+  }
 };
 </script>
-
-<style scoped>
-</style>
